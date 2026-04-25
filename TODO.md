@@ -12,13 +12,13 @@ Maranatha Christian Church — Implementation TODO (Easy → Hard)
 Outcome: Beautiful empty shell ready for pages.
 
 🟢 Phase 1 — Static Pages (Easy Wins)
- Home page layout (hero, CTA sections, intro)
- About → Mission & Vision page
- About → Beliefs page
- About → Leadership page
- Ministries main page
- Individual ministry template page
- Contact page (static info + map)
+ [x] Home page layout (hero, CTA sections, intro)
+ [x] About → Mission & Vision page
+ [x] About → Beliefs page
+ [x] About → Leadership page
+ [x] Ministries main page
+ [x] Individual ministry template page
+ [x] Contact page (static info + map)
 
 Outcome: A real, navigable website without backend yet.
 
