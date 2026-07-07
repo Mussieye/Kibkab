@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import Stripe from "stripe";
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+import { getStripeClient } from "@/lib/stripe-config";
 
 export async function POST(request: NextRequest) {
   try {
+    const stripe = getStripeClient();
     const { amount, frequency, donationType, donorInfo } = await request.json();
 
     // Validate required fields

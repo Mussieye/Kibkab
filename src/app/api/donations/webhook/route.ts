@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import Stripe from "stripe";
+import type Stripe from "stripe";
+import { getStripeClient } from "@/lib/stripe-config";
 import { storeDonationRecord, updateDonationStatus } from "@/lib/donations";
 import {
   sendDonationReceipt,
@@ -7,12 +8,11 @@ import {
   sendFailedPaymentNotification,
 } from "@/lib/email-service";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 
 export async function POST(request: NextRequest) {
   try {
+    const stripe = getStripeClient();
     const body = await request.text();
     const signature = request.headers.get("stripe-signature");
 

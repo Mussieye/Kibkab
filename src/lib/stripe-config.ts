@@ -1,3 +1,5 @@
+import Stripe from "stripe";
+
 export interface DonationConfig {
   stripe: {
     publishableKey: string;
@@ -48,6 +50,19 @@ export interface DonationRecord {
   createdAt: Date;
   completedAt?: Date;
   metadata: Record<string, string>;
+}
+
+let stripeClient: Stripe | null = null;
+
+export function getStripeClient(): Stripe {
+  const secretKey = process.env.STRIPE_SECRET_KEY;
+  if (!secretKey) {
+    throw new Error("Stripe is not configured");
+  }
+  if (!stripeClient) {
+    stripeClient = new Stripe(secretKey);
+  }
+  return stripeClient;
 }
 
 // Default donation configuration
