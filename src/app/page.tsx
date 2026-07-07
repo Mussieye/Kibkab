@@ -44,7 +44,7 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute inset-0 hero-cinema-reveal">
             <Image
-              src="/front.png"
+              src="/Jesus_Christ_carrying.jpeg"
               alt="Jesus carrying the cross"
               fill
               priority
@@ -71,8 +71,8 @@ export default function Home() {
           <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-black via-black/60 to-transparent" />
           {/* Bottom edge */}
           <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black to-transparent" />
-          {/* Right edge */}
-          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-black/50 to-transparent" />
+          {/* Right edge — darkens behind the corner scripture text */}
+          <div className="absolute inset-y-0 right-0 w-[420px] bg-gradient-to-l from-black/55 via-black/15 to-transparent" />
         </div>
 
         {/* ── LEFT: Text content column ── */}
@@ -154,15 +154,15 @@ export default function Home() {
 
         </div>
 
-        {/* ── RIGHT: Isaiah 53:5 — frosted glass card, desktop only ── */}
-        <div className="relative z-10 hidden lg:flex lg:flex-1 items-center justify-center pr-10">
+        {/* ── RIGHT: Isaiah 53:5 — floats directly on the image, right corner ── */}
+        <div className="relative z-10 hidden lg:flex lg:flex-1 items-center justify-end pr-16">
           <div
-            className="w-[300px] rounded-2xl border border-gold/20 bg-transparent px-8 py-8 text-center"
+            className="w-[300px] text-right"
             style={{ opacity: 0, animation: "scriptureRise 1s cubic-bezier(0.2,0,0,1) 1s both" }}
           >
             {/* Reference label */}
             <p
-              className="mb-4 text-[9px] font-semibold uppercase tracking-[0.32em] text-gold/80"
+              className="mb-4 text-[9px] font-semibold uppercase tracking-[0.32em] text-gold/90 drop-shadow-[0_2px_10px_rgba(0,0,0,1)]"
               style={{ opacity: 0, animation: "scriptureRise 0.8s ease-out 1.3s both" }}
             >
               Isaiah 53 · Verse 5
@@ -170,7 +170,7 @@ export default function Home() {
 
             {/* Gold ornamental rule */}
             <div
-              className="mb-5 flex items-center justify-center gap-3"
+              className="mb-5 flex items-center justify-end gap-3"
               style={{ opacity: 0, animation: "scriptureRise 0.7s ease-out 1.45s both" }}
             >
               <div className="h-px w-10 bg-gradient-to-r from-transparent to-gold/55" />
@@ -244,7 +244,7 @@ export default function Home() {
 
             {/* Bottom rule */}
             <div
-              className="mt-5 flex items-center justify-center gap-3"
+              className="mt-5 flex items-center justify-end gap-3"
               style={{ opacity: 0, animation: "scriptureRise 0.7s ease-out 2.5s both" }}
             >
               <div className="h-px w-10 bg-gradient-to-r from-transparent to-gold/55" />
