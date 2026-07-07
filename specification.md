@@ -49,7 +49,7 @@ Home
 │   └── Media Categories
 ├── Events
 │   └── Calendar
-├── Give Online
+├── Give Offering
 ├── Prayer Requests
 ├── Blog & Devotionals
 ├── Gallery

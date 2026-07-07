@@ -1,0 +1,13 @@
+# This is a placeholder file for the church background image
+# To add your actual background image:
+# 1. Replace this file with your image file (church-background.jpg)
+# 2. Recommended size: 1920x1080 pixels or larger
+# 3. Format: JPG, PNG, or WebP
+# 4. Keep file size under 2MB for optimal loading
+
+# The image will be displayed with:
+# - Cover sizing (fills entire hero section)
+# - Center positioning
+# - Brightness adjustment (0.7) for better text readability
+# - Contrast enhancement (1.1) for visual impact
+# - Gradient overlay for church branding colors

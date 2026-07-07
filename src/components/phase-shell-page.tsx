@@ -5,10 +5,10 @@ type PhaseShellPageProps = {
 
 export function PhaseShellPage({ title, description }: PhaseShellPageProps) {
   return (
-    <section className="rounded-2xl border border-royal-purple/15 bg-white p-8 shadow-sm">
-      <h1 className="font-serif text-4xl text-royal-purple">{title}</h1>
-      <p className="mt-4 max-w-2xl text-charcoal/90">{description}</p>
-      <p className="mt-6 text-sm uppercase tracking-[0.2em] text-burgundy">
+    <section className="rounded-2xl border border-white/[0.07] bg-[#111111] p-8">
+      <h1 className="font-serif text-4xl text-neutral-50">{title}</h1>
+      <p className="mt-4 max-w-2xl text-neutral-400">{description}</p>
+      <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-gold/60">
         Phase 0 placeholder route
       </p>
     </section>

@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Maranatha Christian Church Website
 
-## Getting Started
+Next.js + Tailwind project for the Maranatha Christian Church website.
 
-First, run the development server:
+## Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## CMS prep (Strapi)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project includes a Strapi-ready CMS abstraction layer so page components
+stay stable while content comes from the API.
 
-## Learn More
+### Environment variables
 
-To learn more about Next.js, take a look at the following resources:
+Create a `.env.local` file:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+CMS_PROVIDER=strapi
+CMS_BASE_URL=
+CMS_API_TOKEN=
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `CMS_PROVIDER`: keep this as `strapi`
+- `CMS_BASE_URL`: your CMS base URL (leave empty to use local fallback data)
+- `CMS_API_TOKEN`: optional bearer token for protected CMS APIs
 
-## Deploy on Vercel
+### CMS files
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `src/lib/cms/models.ts` — shared content model types
+- `src/lib/cms/content.ts` — Strapi fetch utilities with fallback handling
+- `src/lib/cms/client.ts` — generic JSON fetch client
+- `src/lib/cms/mock-data.ts` — local fallback data for development
+- `docs/strapi-content-models.md` — Strapi content-type contracts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Current dynamic pages
+
+- `src/app/ministries/page.tsx`
+- `src/app/ministries/[slug]/page.tsx`
+- `src/app/about/leadership/page.tsx`
+- `src/app/cms-status/page.tsx` (diagnostics)
+
+### Strapi endpoints covered
+
+- `/api/ministries`
+- `/api/leaders`
+- `/api/sermons`
+- `/api/events`
+- `/api/blog-posts`
+- `/api/gallery-albums`
+
+### Quick diagnostics
+
+Open `/cms-status` while running the app to verify:
+
+- environment setup (`CMS_BASE_URL`, token presence)
+- endpoint reachability for core Strapi collections

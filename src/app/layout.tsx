@@ -1,24 +1,101 @@
 import type { Metadata } from "next";
-import { Cinzel, Lato } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { LanguageProvider } from "@/contexts/language-context";
+import { AuthProvider } from "@/contexts/auth-context";
+import { PerformanceToggle } from "@/components/performance/performance-monitor";
+import { AccessibilityPanel } from "@/components/accessibility/accessibility-panel";
+import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 
-const cinzel = Cinzel({
-  variable: "--font-cinzel",
+const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID ?? "";
+
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  style: ["normal", "italic"],
 });
 
-const lato = Lato({
-  variable: "--font-lato",
-  weight: ["300", "400", "700", "900"],
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Maranatha Christian Church",
+  metadataBase: new URL("https://maranathachristianchurch.org"),
+  title: {
+    default: "Maranatha Christian Church",
+    template: "%s | Maranatha Christian Church",
+  },
   description:
-    "Official website for Maranatha Christian Church: sermons, events, ministries, and community life.",
+    "Maranatha Christian Church — a vibrant community of faith in the Netherlands. Discover sermons, events, ministries, live worship, and more.",
+  keywords: [
+    "Maranatha Christian Church",
+    "church Netherlands",
+    "sermons",
+    "church events",
+    "worship",
+    "Christian community",
+    "live stream church",
+    "online giving",
+  ],
+  authors: [{ name: "Maranatha Christian Church" }],
+  creator: "Maranatha Christian Church",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://maranathachristianchurch.org",
+    siteName: "Maranatha Christian Church",
+    title: "Maranatha Christian Church",
+    description:
+      "A vibrant community of faith. Sermons, events, ministries, and live worship — anytime, anywhere.",
+    images: [
+      {
+        url: "/maranatha-full-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Maranatha Christian Church",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Maranatha Christian Church",
+    description: "A vibrant community of faith. Sermons, events, ministries, and live worship.",
+    images: ["/maranatha-full-logo.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
+};
+
+const churchJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Church",
+  name: "Maranatha Christian Church",
+  url: "https://maranathachristianchurch.org",
+  logo: "https://maranathachristianchurch.org/logo.png",
+  description: "A vibrant community of faith in the Netherlands.",
+  telephone: "+33759495540",
+  email: "maranatachurch1983@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "NL",
+  },
+  openingHoursSpecification: [
+    { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday",    opens: "09:00", closes: "13:00" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: "Wednesday", opens: "19:00", closes: "21:00" },
+  ],
+  sameAs: [],
 };
 
 export default function RootLayout({
@@ -29,16 +106,30 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cinzel.variable} ${lato.variable} h-full antialiased`}
+      className={`${playfair.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-off-white text-charcoal">
-        <div className="flex min-h-screen flex-col">
-          <SiteHeader />
-          <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-10 md:px-6">
-            {children}
-          </main>
-          <SiteFooter />
-        </div>
+      <body className="min-h-full bg-background text-foreground">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(churchJsonLd) }}
+        />
+        <a href="#main-content" className="skip-to-content">
+          Skip to main content
+        </a>
+        <AuthProvider>
+          <LanguageProvider>
+            <div className="flex min-h-screen flex-col">
+              <SiteHeader />
+              <main id="main-content" className="flex-1 w-full pt-[68px]">
+                {children}
+              </main>
+              <SiteFooter />
+            </div>
+            <PerformanceToggle />
+            <AccessibilityPanel />
+          </LanguageProvider>
+        </AuthProvider>
+        <GoogleAnalytics measurementId={GA_ID} />
       </body>
     </html>
   );
