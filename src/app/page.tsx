@@ -116,7 +116,7 @@ export default function Home() {
           <div className="hero-badge relative mb-8 inline-flex self-start items-center gap-3 rounded-full border border-gold/22 bg-black/40 px-5 py-2 backdrop-blur-sm">
             <span className="block h-px w-6 bg-gold/45" />
             <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold/85">
-              Maranatha Christian Church
+              Maranatha Christian Church · Netherlands
             </span>
             <span className="block h-px w-6 bg-gold/45" />
           </div>
@@ -137,6 +137,15 @@ export default function Home() {
             <div className="hero-divider-gem h-1.5 w-1.5 border border-gold/50" />
             <div className="hero-divider-line h-px w-16 bg-gradient-to-l from-transparent to-gold/45" />
           </div>
+
+          {/* What we believe */}
+          <p
+            className="mb-8 max-w-md text-sm leading-relaxed text-neutral-300 drop-shadow-[0_2px_14px_rgba(0,0,0,1)] sm:text-base"
+            style={{ opacity: 0, animation: "heroFadeUpIn 0.8s ease-out 1.6s both" }}
+          >
+            We believe in <span className="text-gold/90">One God</span> — Father,
+            Son, and Holy Spirit.
+          </p>
 
           {/* Scripture */}
           <div className="relative mb-10">
@@ -161,16 +170,16 @@ export default function Home() {
           {/* CTAs — rise together as a unit */}
           <div className="hero-ctas relative flex flex-wrap items-center gap-4">
             <Link
-              href="/about"
+              href="/media/live-stream"
               className="rounded-full bg-gold px-9 py-3.5 text-[12px] font-semibold uppercase tracking-[0.15em] text-neutral-950 shadow-[0_0_40px_rgba(201,169,110,0.25)] transition-all duration-300 hover:bg-gold-light hover:shadow-[0_0_60px_rgba(201,169,110,0.45)]"
             >
-              Join Us Sunday
+              Join Our Zoom Meeting
             </Link>
             <Link
-              href="/media/live-stream"
+              href="/contact"
               className="group inline-flex items-center gap-2 rounded-full border border-white/18 bg-white/[0.06] px-9 py-3.5 text-[12px] font-semibold uppercase tracking-[0.15em] text-neutral-200 backdrop-blur-md transition-all duration-300 hover:border-white/35 hover:bg-white/[0.12] hover:text-white"
             >
-              Watch Online
+              Plan Your Visit
               <svg
                 className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1"
                 fill="none"
@@ -182,6 +191,16 @@ export default function Home() {
               </svg>
             </Link>
           </div>
+
+          {/* Meeting schedule — the concrete "what's next" */}
+          <p
+            className="hero-ctas relative mt-5 text-[11px] font-medium uppercase tracking-[0.12em] text-neutral-400"
+            style={{ animationDelay: "2.35s" }}
+          >
+            Tue &amp; Thu · Zoom · Amharic &amp; Dutch
+            <span className="mx-2 text-gold/40">|</span>
+            Monthly in-person gathering
+          </p>
 
         </div>
 
@@ -543,8 +562,8 @@ export default function Home() {
                 Upcoming Events
               </p>
               <h2 className="font-serif text-4xl font-bold text-neutral-50 lg:text-5xl">
-                Join Us in{" "}
-                <em className="gold-metallic not-italic">Person</em>
+                Ways to{" "}
+                <em className="gold-metallic not-italic">Gather</em>
               </h2>
             </div>
             <Link
@@ -561,26 +580,26 @@ export default function Home() {
           <div className="grid gap-4 md:grid-cols-3">
             {[
               {
-                date: { day: "04", month: "May" },
-                title: "Sunday Morning Worship",
-                time: "9:00 AM & 11:00 AM",
-                tag: "Weekly",
+                date: { day: "Tue", month: "Weekly" },
+                title: "Zoom Meeting",
+                time: "Amharic & Dutch",
+                tag: "Tuesday",
               },
               {
-                date: { day: "07", month: "May" },
-                title: "Midweek Bible Study",
-                time: "7:00 PM",
-                tag: "Wednesday",
+                date: { day: "Thu", month: "Weekly" },
+                title: "Zoom Meeting",
+                time: "Amharic & Dutch",
+                tag: "Thursday",
               },
               {
-                date: { day: "10", month: "May" },
-                title: "Youth Night",
-                time: "6:30 PM",
-                tag: "Youth",
+                date: { day: "1x", month: "Monthly" },
+                title: "In-Person Gathering",
+                time: "Once a month",
+                tag: "Monthly",
               },
             ].map((event) => (
               <div
-                key={event.title}
+                key={event.tag}
                 className="group flex gap-5 rounded-2xl border border-white/[0.07] bg-[#111111] p-6 transition-all duration-200 hover:border-gold/18 hover:bg-[#141414]"
               >
                 {/* Date badge */}
