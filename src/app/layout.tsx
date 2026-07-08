@@ -54,9 +54,9 @@ export const metadata: Metadata = {
       "A vibrant community of faith. Sermons, events, ministries, and live worship — anytime, anywhere.",
     images: [
       {
-        url: "/maranatha-full-logo.png",
-        width: 1200,
-        height: 630,
+        url: "/Maranatha.png",
+        width: 1024,
+        height: 1024,
         alt: "Maranatha Christian Church",
       },
     ],
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Maranatha Christian Church",
     description: "A vibrant community of faith. Sermons, events, ministries, and live worship.",
-    images: ["/maranatha-full-logo.png"],
+    images: ["/Maranatha.png"],
   },
   robots: {
     index: true,
@@ -73,8 +73,8 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
   icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
+    icon: "/Maranatha.png",
+    apple: "/Maranatha.png",
   },
 };
 
@@ -83,7 +83,7 @@ const churchJsonLd = {
   "@type": "Church",
   name: "Maranatha Christian Church",
   url: "https://maranathachristianchurch.org",
-  logo: "https://maranathachristianchurch.org/logo.png",
+  logo: "https://maranathachristianchurch.org/Maranatha.png",
   description: "A vibrant community of faith in the Netherlands.",
   telephone: "+33759495540",
   email: "maranatachurch1983@gmail.com",

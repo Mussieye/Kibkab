@@ -47,7 +47,7 @@ export function SiteHeader() {
         <Link href="/" className="group flex items-center gap-3">
           <div className="relative h-10 w-10 overflow-hidden rounded-lg ring-1 ring-white/10 transition-all duration-300 group-hover:ring-gold/40">
             <Image
-              src="/Maranathachruch.png"
+              src="/Maranatha.png"
               alt="Maranatha Christian Church"
               fill
               className="object-contain"

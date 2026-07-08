@@ -69,7 +69,7 @@ export default function MemberDashboardPage() {
       <header className="sticky top-0 z-30 border-b border-white/[0.05] bg-[#090909]/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <Link href="/" className="flex items-center gap-3">
-            <Image src="/Maranathachruch.png" alt="Maranatha" width={32} height={32} className="object-contain" />
+            <Image src="/maranatha-icon.png" alt="Maranatha" width={32} height={32} className="object-contain" />
             <span className="gold-metallic hidden font-serif text-base font-bold sm:block">
               Maranatha
             </span>

@@ -42,17 +42,48 @@ export default function Home() {
 
         {/* ── BACKGROUND: Full-width cinematic image ── */}
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute inset-0 hero-cinema-reveal">
+          <div className="absolute inset-0 hero-cinema-reveal overflow-hidden">
             <Image
               src="/Jesus_Christ_carrying.jpeg"
               alt="Jesus carrying the cross"
               fill
               priority
               quality={95}
-              className="object-cover"
+              className="hero-kenburns object-cover"
               style={{ objectPosition: "62% center" }}
             />
           </div>
+
+          {/* Diagonal light sweeping across the frame */}
+          <div
+            className="hero-light-sweep absolute -inset-y-24 left-0 w-1/3"
+            style={{
+              background:
+                "linear-gradient(75deg, transparent 0%, rgba(255,255,255,0.16) 45%, rgba(201,169,110,0.28) 50%, rgba(255,255,255,0.16) 55%, transparent 100%)",
+            }}
+          />
+
+          {/* Fine gold dust drifting upward */}
+          {[...Array(14)].map((_, i) => {
+            const left = 8 + ((i * 6.7) % 92);
+            const size = i % 3 === 0 ? 3 : 2;
+            const duration = 6 + (i % 5) * 1.6;
+            const delay = (i * 0.9) % 8;
+            return (
+              <div
+                key={i}
+                className="hero-particle absolute rounded-full bg-gold/70 shadow-[0_0_6px_rgba(201,169,110,0.8)]"
+                style={{
+                  left: `${left}%`,
+                  bottom: `${10 + ((i * 13) % 60)}%`,
+                  width: size,
+                  height: size,
+                  animationDuration: `${duration}s`,
+                  animationDelay: `${delay}s`,
+                }}
+              />
+            );
+          })}
 
           {/* Pulsing golden glow orb */}
           <div className="absolute right-[30%] top-[42%] -translate-y-1/2">

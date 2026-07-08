@@ -80,7 +80,7 @@ export default function MemberProfilePage() {
             Back to Dashboard
           </Link>
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/Maranathachruch.png" alt="Maranatha" width={28} height={28} className="object-contain" />
+            <Image src="/maranatha-icon.png" alt="Maranatha" width={28} height={28} className="object-contain" />
             <span className="gold-metallic hidden font-serif text-sm font-bold sm:block">Maranatha</span>
           </Link>
         </div>

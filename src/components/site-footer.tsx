@@ -57,7 +57,7 @@ export function SiteFooter() {
             <Link href="/" className="mb-5 flex items-center gap-3">
               <div className="relative h-10 w-10 overflow-hidden rounded-lg ring-1 ring-white/10">
                 <Image
-                  src="/Maranathachruch.png"
+                  src="/Maranatha.png"
                   alt="Maranatha Christian Church"
                   fill
                   className="object-contain"

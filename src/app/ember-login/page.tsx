@@ -26,7 +26,7 @@ export default function EmberLoginPage() {
         <div className="mb-10 flex flex-col items-center text-center">
           <Link href="/" className="mb-6 inline-block">
             <Image
-              src="/Maranathachruch.png"
+              src="/maranatha-icon.png"
               alt="Maranatha Church"
               width={64}
               height={64}
