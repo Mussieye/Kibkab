@@ -252,7 +252,7 @@ export function DonationForm({ onSuccess, onError }: DonationFormProps) {
 
           <button
             type="submit"
-            disabled={isProcessing}
+            disabled={isProcessing || !(customAmount || amount)}
             className="w-full rounded-xl py-4 text-[13px] font-bold uppercase tracking-[0.16em] text-neutral-950 shadow-[0_0_30px_rgba(201,169,110,0.22)] transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_45px_rgba(201,169,110,0.38)] disabled:cursor-not-allowed disabled:opacity-50"
             style={{ background: "linear-gradient(90deg,#a8844a 0%,#e0c28e 40%,#ffe57a 55%,#e0c28e 70%,#a8844a 100%)" }}
           >
@@ -263,8 +263,10 @@ export function DonationForm({ onSuccess, onError }: DonationFormProps) {
                 </svg>
                 Processing…
               </span>
+            ) : customAmount || amount ? (
+              `Give $${customAmount || amount} ${frequency === "one-time" ? "Now" : frequency}`
             ) : (
-              `Give $${customAmount || amount || "—"} ${frequency === "one-time" ? "Now" : frequency}`
+              "Select an Amount"
             )}
           </button>
         </div>
